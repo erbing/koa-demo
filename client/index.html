@@ -20,6 +20,13 @@
   <body>
     <div><textarea id="textarea" class="text"></textarea></div>
     <button id="btn" class="botton">submit</button>
+    <p>
+      <a
+        href="http://127.0.0.1:1212/login/%3Cimg%20src=%22%22%20onerror='alert(document.cookie)'%20%20%3E"
+        target="_blank"
+        >这是 XSS 的恶意链接</a
+      >
+    </p>
   </body>
   <script>
     const text = document.getElementById("textarea");
