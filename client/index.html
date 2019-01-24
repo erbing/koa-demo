@@ -41,12 +41,13 @@
             if ((xhr.status >= 200 && xhr.status < 300) || xhr.status === 304) {
               var str = xhr.responseText;
               var node = `${str}`;
-              document.body.insertAdjacentHTML("beforeend", node);
+              //   document.body.insertAdjacentHTML("beforeend", node);
             }
           }
         };
-        xhr.open("GET", url, true);
-        xhr.send(null);
+        // xhr.open("GET", url, true);
+        xhr.open("POST", "http://127.0.0.1:1212/upload/");
+        xhr.send(text.value);
       } else {
         alert("请输入内容");
       }

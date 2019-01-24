@@ -1,9 +1,11 @@
 const Koa = require("koa");
 const Router = require("koa-router");
 const Cors = require("koa2-cors");
+const koaBody = require("koa-body");
 
 const app = new Koa();
 const router = new Router();
+app.use(koaBody());
 
 router.get("/", (ctx, next) => {
   ctx.body = "hello, koa router";
@@ -11,6 +13,17 @@ router.get("/", (ctx, next) => {
 
 router.get("/login/:id", (ctx, next) => {
   console.log(ctx);
+  let curData = ctx.params.id;
+  ctx.body = `<div>${curData}</div>`;
+});
+
+router.post("/upload", (ctx, next) => {
+  console.log(`Request Body: ${JSON.stringify(ctx.request.body)}`);
+  let curData = JSON.stringify(ctx.request.body);
+  ctx.body = `<div>${curData}</div>`;
+});
+
+router.get("/getName", (ctx, next) => {
   let curData = ctx.params.id;
   ctx.body = `<div>${curData}</div>`;
 });
