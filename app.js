@@ -12,7 +12,7 @@ router.get("/", (ctx, next) => {
 router.get("/login/:id", (ctx, next) => {
   console.log(ctx);
   let curData = ctx.params.id;
-  ctx.body = curData;
+  ctx.body = `<div>${curData}</div>`;
 });
 
 // app.use(async ctx => {
@@ -21,7 +21,6 @@ router.get("/login/:id", (ctx, next) => {
 //     ctx.body = "hello, login page";
 //     return;
 //   }
-
 //   ctx.body = "hello, koa world";
 // });
 
