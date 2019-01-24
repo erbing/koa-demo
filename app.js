@@ -2,6 +2,7 @@ const Koa = require("koa");
 const Router = require("koa-router");
 const Cors = require("koa2-cors");
 const koaBody = require("koa-body");
+const cache = require("memory-cache");
 
 const app = new Koa();
 const router = new Router();
@@ -18,14 +19,14 @@ router.get("/login/:id", (ctx, next) => {
 });
 
 router.post("/upload", (ctx, next) => {
-  console.log(`Request Body: ${JSON.stringify(ctx.request.body)}`);
   let curData = JSON.stringify(ctx.request.body);
+  cache.put("xss", curData);
   ctx.body = `<div>${curData}</div>`;
 });
 
 router.get("/getName", (ctx, next) => {
-  let curData = ctx.params.id;
-  ctx.body = `<div>${curData}</div>`;
+  let curData = cache.get("xss");
+  ctx.body = `<div>${JSON.parse(curData)}</div>`;
 });
 
 // app.use(async ctx => {
