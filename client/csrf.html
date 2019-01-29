@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>csrf demo</title>
+  </head>
+  <style>
+    .click {
+      width: 200px;
+      height: 100px;
+    }
+    .btn {
+      width: 200px;
+      height: 80px;
+      margin: 0 auto;
+    }
+  </style>
+  <body>
+    <div class="click"><button class="btn" id="click">Click</button></div>
+  </body>
+  <script>
+    const btn = document.getElementById("click");
+    btn.addEventListener("click", () => {
+      alert(123);
+    });
+  </script>
+</html>

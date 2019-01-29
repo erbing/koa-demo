@@ -80,6 +80,9 @@ app.use(async (ctx, next) => {
   // getResponseHeader('myData')可以返回我们所需的值
   ctx.set("Access-Control-Expose-Headers", "myData");
 
+  // 设置 cookies
+  ctx.cookies.set('currenCookies', 123)
+
   await next();
 });
 
