@@ -66,7 +66,6 @@ app.use(async (ctx, next) => {
   // 当请求方法是PUT或DELETE等特殊方法或者Content-Type字段的类型是application/json时，服务器会提前发送一次请求进行验证
   // 下面的的设置只本次验证的有效时间，即在该时间段内服务端可以不用进行验证
   ctx.set("Access-Control-Max-Age", 300);
-
   /*
       CORS请求时，XMLHttpRequest对象的getResponseHeader()方法只能拿到6个基本字段：
           Cache-Control、
@@ -81,7 +80,7 @@ app.use(async (ctx, next) => {
   ctx.set("Access-Control-Expose-Headers", "myData");
 
   // 设置 cookies
-  ctx.cookies.set('currenCookies', 123)
+  ctx.cookies.set("currenCookies", 123);
 
   await next();
 });
