@@ -25,6 +25,7 @@ router.post("/upload", (ctx, next) => {
 });
 
 router.get("/getName", (ctx, next) => {
+  console.log(ctx.request.header.host)
   let curData = cache.get("xss");
   ctx.body = `<div>${JSON.parse(curData)}</div>`;
 });
