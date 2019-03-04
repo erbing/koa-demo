@@ -17,6 +17,17 @@ if (!Function.prototype.tbind) {
   }
 }
 
+if (!Function.prototype.xbind) {
+  Function.prototype.xbind = function() {
+    let that = this
+    let context = [].shift.call(arguments)
+    let args = Array.from(arguments)
+    return function () {
+      return that.apply(context, [].concat.call(args, Array.from(arguments)))
+    }
+  }
+}
+
 
 var obj = {
   name: 'zhang'
@@ -24,11 +35,12 @@ var obj = {
 
 var obj1 = {
   name: 'ge',
-  getName() {
+  getName(name) {
+    this.name = name
     console.log(this.name)
   }
 }
 
-var gets = obj1.getName.tbind(obj)
+var gets = obj1.getName.tbind(obj,'san')
 
 var res = gets()
