@@ -1,16 +1,24 @@
-var age = 11;
-const modules = {
-  age: 14
-};
-
-let myModule = {
-  age: 12,
-  getAge: function() {
-    return this.age;
+Function.prototype.testBind = function() {
+  let args = this.arguments
+  let that = this
+  return function() {
+    return that.apply(this, arguments)
   }
-};
+}
 
-let getAge = myModule.getAge;
+var obj = {
+  name: 'zhang'
+}
 
-getAge.bind(window)(); // 11
-getAge.bind(modules)(); // 14
+var obj1 = {
+  name: 'ge',
+  getName() {
+    return this.name
+  }
+}
+
+var gets = obj1.getName.testBind(obj)
+
+var res = gets()
+
+console.log(res)
