@@ -6,6 +6,7 @@
   "scripts": {
     "start": "cd ./client && http-server -a localhost -p 1234",
     "server": "node app.js",
+    "index": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
