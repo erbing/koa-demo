@@ -30,15 +30,6 @@ router.get("/getName", (ctx, next) => {
   ctx.body = `<div>${JSON.parse(curData)}</div>`;
 });
 
-// app.use(async ctx => {
-//   console.log(ctx.request);
-//   if (ctx.request && ctx.request.url == "/login") {
-//     ctx.body = "hello, login page";
-//     return;
-//   }
-//   ctx.body = "hello, koa world";
-// });
-
 app.use(async (ctx, next) => {
   // 允许来自所有域名请求
   ctx.set("Access-Control-Allow-Origin", "*");
